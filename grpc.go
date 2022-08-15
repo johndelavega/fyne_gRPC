@@ -28,7 +28,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pb "x/helloworld" // x is module name for this app, helloworld is a  package name and a folder
+	// pb "x/helloworld" // x is module name for this app, helloworld is a  package name and a folder, not using go.mod
+	pb "helloworld" // helloworld is a local module using go.mod
 )
 
 const (
@@ -40,7 +41,7 @@ var (
 	name = flag.String("name", defaultName, "Name to greet")
 )
 
-func grpcApp() {
+func grpcClient() {
 	flag.Parse()
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(*addr, grpc.WithTransportCredentials(insecure.NewCredentials()))

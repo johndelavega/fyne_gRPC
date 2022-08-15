@@ -1,15 +1,15 @@
-module x
+module server
 
 go 1.18
 
 require (
-	fyne.io/fyne/v2 v2.2.3
-	github.com/golang/protobuf v1.5.2
-	google.golang.org/grpc v1.38.0
-	google.golang.org/protobuf v1.27.1
+	google.golang.org/grpc v1.48.0
+	// google.golang.org/grpc/examples v0.0.0-20220815172253-802b32e0ec27
+	helloworld v0.0.0
 )
 
 require (
+	fyne.io/fyne/v2 v2.2.3 // indirect
 	fyne.io/systray v1.10.1-0.20220621085403-9a2652634e93 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fredbi/uri v0.0.0-20181227131451-3dcfdacbaaf3 // indirect
@@ -21,6 +21,7 @@ require (
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20211213063430-748e38ca8aec // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/goki/freetype v0.0.0-20181231101311-fa8a33aabaff // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gopherjs/gopherjs v1.17.2 // indirect
 	github.com/jsummers/gobmp v0.0.0-20151104160322-e2ba15ffa76e // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
@@ -35,10 +36,10 @@ require (
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c // indirect
+	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2 // indirect
 )
 
-require helloworld v0.0.0
-
-replace helloworld v0.0.0 => ./helloworld
+// replace google.golang.org/grpc/examples v0.0.0-20220815172253-802b32e0ec27 => ../../helloworld
+replace helloworld v0.0.0 => ../../helloworld
