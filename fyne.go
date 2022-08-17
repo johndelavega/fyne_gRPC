@@ -26,7 +26,9 @@ var _mainMobileDeltaHeight float32 = 0
 
 func fyneApp() {
 
-	fmt.Printf("mobile %s\n\n", _mainAppVersion)
+	// grpcClient()
+
+	fmt.Printf("fyne mobile gRPC %s\n\n", _mainAppVersion)
 	// fmt.Printf("single arg options: debug | geom (background graphics)\n\n")
 
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
@@ -52,7 +54,7 @@ func fyneApp() {
 
 	a := app.NewWithID("com.fynetest.mobile1")
 	a.SetIcon(theme.FyneLogo())
-	w := a.NewWindow("Fyne App")
+	w := a.NewWindow("Fyne Mobile gRPC")
 
 	w.SetMaster()
 

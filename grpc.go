@@ -41,6 +41,7 @@ var (
 	name = flag.String("name", defaultName, "Name to greet")
 )
 
+// not used
 func grpcClient() {
 	flag.Parse()
 	// Set up a connection to the server.
@@ -59,4 +60,53 @@ func grpcClient() {
 		log.Fatalf("could not greet: %v", err)
 	}
 	log.Printf("Greeting: %s", r.GetMessage())
+}
+
+var conn *grpc.ClientConn
+var err error
+var c pb.GreeterClient
+
+var r *pb.HelloReply
+
+func grpcClientInit() {
+	// flag.Parse()
+	// Set up a connection to the server.
+	conn, err = grpc.Dial(*addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		log.Fatalf("did not connect: %v", err)
+	}
+	// defer conn.Close()
+	c = pb.NewGreeterClient(conn)
+
+	// // Contact the server and print out its response.
+	// ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	// defer cancel()
+	// r, err = c.SayHello(ctx, &pb.HelloRequest{Name: *name})
+	// if err != nil {
+	// 	log.Fatalf("could not greet: %v", err)
+	// }
+	// log.Printf("Greeting: %s", r.GetMessage())
+	log.Printf("gRPC initialized")
+
+}
+
+func grpcClientCleanup() {
+	defer conn.Close()
+}
+
+func SayHello() string {
+
+	// Contact the server and print out its response.
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+
+	r, err = c.SayHello(ctx, &pb.HelloRequest{Name: *name})
+	if err != nil {
+		log.Fatalf("could not greet: %v", err)
+	}
+
+	m := r.GetMessage()
+	// log.Printf("Greeting: %s", m)
+
+	return m
 }

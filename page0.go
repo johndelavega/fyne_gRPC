@@ -48,9 +48,10 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 	btnInitPage.Move(fyne.Position{X: 10, Y: 140})
 	btnInitPage.Resize(fyne.Size{Width: 150, Height: 37})
 
-	btnPage1 := widget.NewButton("Open page1", func() {
+	btnPage1 := widget.NewButton("Clear message", func() {
 
 		// w.SetContent(page1(w, content))
+		lblDebug.SetText("message cleared!!!")
 	})
 
 	btnPage2 := widget.NewButton("Open page2", func() {
@@ -72,8 +73,13 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 		w.SetContent(content)
 	})
 
-	btnRandom := widget.NewButton("random ", func() {
+	btnRandom := widget.NewButton("random grpc", func() {
 		lblRand.SetText("random test - " + fmt.Sprintf("%f", rand.Float32()))
+		// grpcClient()
+		m := SayHello()
+
+		lblDebug.SetText(fmt.Sprintf("debug: message is:  %s", m))
+
 	})
 
 	vbox := container.NewVBox(btnRandom, btnHeight, btnPage1, btnPage2, btnGrid)
