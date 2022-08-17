@@ -39,8 +39,6 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 	lblDebug := widget.NewLabel("lblDebug Home Page0")
 	lblDebug.Move(fyne.Position{X: 10, Y: 90})
 
-	// fmt.Printf("debug: container = %v\n", c)
-
 	btnInitPage := widget.NewButton(" back to Init page", func() {
 		// fmt.Printf("debug: init page button, container = %v\n", c)
 		w.SetContent(c)
@@ -74,11 +72,10 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 	})
 
 	btnRandom := widget.NewButton("random grpc", func() {
-		lblRand.SetText("random test - " + fmt.Sprintf("%f", rand.Float32()))
-		// grpcClient()
-		m := SayHello()
 
-		lblDebug.SetText(fmt.Sprintf("debug: message is:  %s", m))
+		lblRand.SetText("random test - " + fmt.Sprintf("%f", rand.Float32()))
+
+		lblDebug.SetText(fmt.Sprintf("dbg: grpc message:  %s", SayHello()))
 
 	})
 
@@ -98,7 +95,6 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 
 	content = container.NewWithoutLayout()
 
-	// content.Objects = []fyne.CanvasObject{lblVer, lblDebug, lblRand, btnRandom, btnHeight, btnPage1, btnPage2}
 	content.Objects = []fyne.CanvasObject{lblVer, lblRand, lblDebug, vbox, btnInitPage}
 
 	return content

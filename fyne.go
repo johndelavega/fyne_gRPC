@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
-	"strings"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -26,31 +24,9 @@ var _mainMobileDeltaHeight float32 = 0
 
 func fyneApp() {
 
-	// grpcClient()
-
 	fmt.Printf("fyne mobile gRPC %s\n\n", _mainAppVersion)
-	// fmt.Printf("single arg options: debug | geom (background graphics)\n\n")
 
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
-
-	bDebug := false
-	bGeom := false
-	_ = bGeom
-
-	args := os.Args
-
-	if len(args) > 1 {
-		if strings.ToLower(args[1]) == "debug" {
-			bDebug = true
-		}
-		if strings.ToLower(args[1]) == "geom" {
-			bGeom = true
-		}
-	}
-
-	if bDebug {
-		fmt.Printf("debugging... print main() start\n\n")
-	}
 
 	a := app.NewWithID("com.fynetest.mobile1")
 	a.SetIcon(theme.FyneLogo())
@@ -64,7 +40,6 @@ func fyneApp() {
 	w.CenterOnScreen()
 
 	fmt.Printf("debug: before w.Show() 1 : %v\n", w.Canvas().Size())
-	// w.ShowAndRun()
 
 	w.Show()
 
