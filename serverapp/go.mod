@@ -4,7 +4,6 @@ go 1.18
 
 require (
 	google.golang.org/grpc v1.48.0
-	// google.golang.org/grpc/examples v0.0.0-20220815172253-802b32e0ec27
 	helloworld v0.0.0
 )
 
@@ -41,5 +40,4 @@ require (
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2 // indirect
 )
 
-// replace google.golang.org/grpc/examples v0.0.0-20220815172253-802b32e0ec27 => ../../helloworld
-replace helloworld v0.0.0 => ../../helloworld
+replace helloworld v0.0.0 => ../helloworld
