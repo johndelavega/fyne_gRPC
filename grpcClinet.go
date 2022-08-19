@@ -28,7 +28,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	// pb "x/helloworld" // x is module name for this app, helloworld is a  package name and a folder, not using go.mod
 	pb "helloworld" // helloworld is a local module using go.mod
 )
 
@@ -41,11 +40,13 @@ var (
 	name = flag.String("name", defaultName, "Name to greet")
 )
 
-var conn *grpc.ClientConn
-var err error
-var c pb.GreeterClient
+var (
+	conn *grpc.ClientConn
+	err  error
+	c    pb.GreeterClient
 
-var r *pb.HelloReply
+	r *pb.HelloReply
+)
 
 func grpcClientInit() {
 
@@ -67,6 +68,8 @@ func grpcClientCleanup() {
 
 func SayHello() string {
 
+	flag.Parse()
+
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
@@ -76,8 +79,5 @@ func SayHello() string {
 		log.Fatalf("could not greet: %v", err)
 	}
 
-	m := r.GetMessage()
-	// log.Printf("Greeting: %s", m)
-
-	return m
+	return r.GetMessage()
 }
