@@ -55,10 +55,12 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 	btnPage2 := widget.NewButton("Open page2", func() {
 		// w.SetContent(page2(w, content))
 	})
+	btnPage2.Disable()
 
 	btnGrid := widget.NewButton("Open grid", func() {
 		// w.SetContent(grid(w, content))
 	})
+	btnGrid.Disable()
 
 	btnExit := widget.NewButton("Exit", func() {
 		w.Close()
@@ -71,7 +73,7 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 		w.SetContent(content)
 	})
 
-	btnRandom := widget.NewButton("random grpc", func() {
+	btnRandom := widget.NewButton("random grpc msg", func() {
 
 		lblRand.SetText("random test - " + fmt.Sprintf("%f", rand.Float32()))
 
