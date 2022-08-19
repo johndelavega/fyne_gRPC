@@ -4,9 +4,9 @@ go 1.18
 
 require (
 	fyne.io/fyne/v2 v2.2.3
-	github.com/golang/protobuf v1.5.2
+	github.com/golang/protobuf v1.5.2 // indirect
 	google.golang.org/grpc v1.38.0
-	google.golang.org/protobuf v1.27.1
+	google.golang.org/protobuf v1.27.1 // indirect
 )
 
 require (
