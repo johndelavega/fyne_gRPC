@@ -76,7 +76,7 @@ func SayHello() (string, int32) {
 
 	r, err = c.SayHello(ctx, &pb.HelloRequest{Name: *name})
 	if err != nil {
-		log.Fatalf("could not greet: %v", err)
+		log.Fatalf("Error: could not greet, make sure ./serverApp/main.go is running: %v", err)
 	}
 
 	return r.GetMessage(), r.RandNum
