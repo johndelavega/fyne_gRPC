@@ -15,10 +15,7 @@ import (
 // Nexus 5X = 598, _mobileDeltaHeight = 25
 //
 
-// var _mainAppVersion = "v0.0.0"
-// var _mainInternalBuildNumber = "10000"
-
-var _appType string = "Desktop" // Mobile
+var _appType string = "Desktop" // or Mobile
 
 var _mobileDeltaHeight float32 = 0
 

@@ -22,14 +22,10 @@ func pageInit(w fyne.Window) *fyne.Container {
 
 	var content *fyne.Container
 
-	// noLayout := container.NewWithoutLayout()
 	center := container.NewCenter()
-
 	if fyne.CurrentDevice().IsMobile() {
 		_appType = "Mobile"
 	}
-
-	// noLayout.Objects = []fyne.CanvasObject{widget.NewLabel("center")}
 	centerText := fmt.Sprintf("Press OK to Start\n\n%s app %s\n\ndebug: center layout\n\n\n\n\nbuild# %s", _appType, _mainAppVersion, _mainInternalBuildNumber)
 	center.Objects = []fyne.CanvasObject{widget.NewLabel(centerText)}
 

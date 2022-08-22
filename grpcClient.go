@@ -28,7 +28,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pb "helloworld" // helloworld is a local module using go.mod
+	pb "helloworld" // helloworld is a local module using go.mod and replace
 )
 
 const (
@@ -41,11 +41,11 @@ var (
 )
 
 var (
-	conn *grpc.ClientConn
-	err  error
-	c    pb.GreeterClient
+	conn   *grpc.ClientConn
+	err    error
+	client pb.GreeterClient
 
-	r *pb.HelloReply
+	reply *pb.HelloReply
 )
 
 func grpcClientInit() {
@@ -56,7 +56,7 @@ func grpcClientInit() {
 		log.Fatalf("did not connect: %v", err)
 	}
 
-	c = pb.NewGreeterClient(conn)
+	client = pb.NewGreeterClient(conn)
 
 	log.Printf("gRPC initialized")
 
@@ -74,10 +74,10 @@ func SayHello() (string, int32) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	r, err = c.SayHello(ctx, &pb.HelloRequest{Name: *name})
+	reply, err = client.SayHello(ctx, &pb.HelloRequest{Name: *name})
 	if err != nil {
 		log.Fatalf("Error: could not greet, make sure ./serverApp/main.go is running: %v", err)
 	}
 
-	return r.GetMessage(), r.RandNum
+	return reply.GetMessage(), reply.RandNum
 }
