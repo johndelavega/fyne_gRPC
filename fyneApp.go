@@ -11,30 +11,31 @@ import (
 
 //
 // mobile device specific height, fyne.Window.Canvas().Size()
-// Pixel 4a = 780, _mainMobileDeltaHeight = 52
-// Nexus 5X = 598, _mainMobileDeltaHeight = 25
+// Pixel 4a = 780, _mobileDeltaHeight = 52
+// Nexus 5X = 598, _mobileDeltaHeight = 25
 //
 
 // var _mainAppVersion = "v0.0.0"
 // var _mainInternalBuildNumber = "10000"
 
-var _mainAppType string = "Desktop" // Mobile
+var _appType string = "Desktop" // Mobile
 
-var _mainMobileDeltaHeight float32 = 0
+var _mobileDeltaHeight float32 = 0
 
 func fyneApp() {
 
-	fmt.Printf("fyne mobile gRPC %s\n\n", _mainAppVersion)
+	fmt.Printf("fyneApp mobile gRPC %s\n\n", _mainAppVersion)
 
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
 	a := app.NewWithID("com.fynetest.mobile1")
 	a.SetIcon(theme.FyneLogo())
-	w := a.NewWindow("Fyne Mobile gRPC")
+	w := a.NewWindow("fyneApp gRPC")
 
 	w.SetMaster()
 
 	w.Resize(fyne.NewSize(300, 450))
+	w.SetFixedSize(true)
 
 	w.SetContent(pageInit(w)) // init page, ok button only
 	w.CenterOnScreen()

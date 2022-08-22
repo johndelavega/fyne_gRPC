@@ -24,6 +24,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math/rand"
 	"net"
 
 	"google.golang.org/grpc"
@@ -42,8 +43,10 @@ type server struct {
 
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
-	log.Printf("Received: %v", in.GetName())
-	return &pb.HelloReply{Message: "Hello " + in.GetName()}, nil
+	log.Printf("Received from client: %v", in.GetName())
+	var rand int32 = int32(rand.Uint32())
+	log.Printf("RandNum: sent to client: %v", rand)
+	return &pb.HelloReply{Message: "Hello " + in.GetName(), RandNum: rand}, nil
 }
 
 func main() {

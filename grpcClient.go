@@ -32,7 +32,7 @@ import (
 )
 
 const (
-	defaultName = "world john"
+	defaultName = "world"
 )
 
 var (
@@ -66,7 +66,7 @@ func grpcClientCleanup() {
 	defer conn.Close()
 }
 
-func SayHello() string {
+func SayHello() (string, int32) {
 
 	flag.Parse()
 
@@ -79,5 +79,5 @@ func SayHello() string {
 		log.Fatalf("could not greet: %v", err)
 	}
 
-	return r.GetMessage()
+	return r.GetMessage(), r.RandNum
 }

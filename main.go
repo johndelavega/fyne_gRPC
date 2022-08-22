@@ -4,11 +4,11 @@ import (
 	"fmt"
 )
 
-var _mainAppVersion = "v0.1.2"
-var _mainInternalBuildNumber = "10005"
+var _mainAppVersion = "v0.1.3"
+var _mainInternalBuildNumber = "10006"
 
 func main() {
-	fmt.Println("fyne gRPC")
+	fmt.Println("fyneApp gRPC")
 
 	grpcClientInit()
 	fyneApp()
