@@ -34,7 +34,7 @@ func pageInit(w fyne.Window) *fyne.Container {
 	center.Objects = []fyne.CanvasObject{widget.NewLabel(centerText)}
 
 	btnOK := widget.NewButton("OK", func() {
-		fmt.Printf("debug: btnOK - OK : %v\n", w.Canvas().Size())
+		fmt.Printf("debug: btnOK - after fyne.App.Run() canvas size : %v\n", w.Canvas().Size())
 
 		w.SetContent(page0(w, content, fyne.CurrentDevice().IsMobile()))
 	})

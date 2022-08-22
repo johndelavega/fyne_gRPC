@@ -16,4 +16,4 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
-replace helloworld v0.0.0 => ../helloworld
+replace helloworld v0.0.0 => ../helloworldProto

@@ -1,4 +1,4 @@
-module x
+module fyne_gRPC
 
 go 1.18
 
@@ -41,4 +41,4 @@ require (
 
 require helloworld v0.0.0
 
-replace helloworld v0.0.0 => ./helloworld
+replace helloworld v0.0.0 => ./helloworldProto

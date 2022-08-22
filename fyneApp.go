@@ -24,7 +24,7 @@ var _mobileDeltaHeight float32 = 0
 
 func fyneApp() {
 
-	fmt.Printf("fyneApp mobile gRPC %s\n\n", _mainAppVersion)
+	fmt.Printf("fyneApp gRPC %s\n\n", _mainAppVersion)
 
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
@@ -40,24 +40,14 @@ func fyneApp() {
 	w.SetContent(pageInit(w)) // init page, ok button only
 	w.CenterOnScreen()
 
-	fmt.Printf("debug: before w.Show() 1 : %v\n", w.Canvas().Size())
-
 	w.Show()
 
-	fmt.Printf("debug: after  w.Show() 2 : %v\n", w.Canvas().Size())
-
 	a.Lifecycle().SetOnStarted(func() {
-		fmt.Println("debug: before  a.Run() test1 - a.Lifecycle().SetOnStarted(...)")
-		fmt.Printf("debug: before  a.Run() test1 : %v\n", w.Canvas().Size())
+		fmt.Println("debug: before fyne.App.Run() test1 - a.Lifecycle().SetOnStarted(...)")
+		fmt.Printf("debug: before fyne.App.Run() canvas size : %v\n", w.Canvas().Size())
 
 	})
 
 	a.Run()
 
-	a.Lifecycle().SetOnStarted(func() {
-		// not called
-		fmt.Println("debug: after a.Run() test2 - a.Lifecycle().SetOnStarted(...)")
-		fmt.Printf("debug: after a.Run() %v\n", w.Canvas().Size())
-
-	})
 }
