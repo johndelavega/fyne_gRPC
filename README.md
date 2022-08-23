@@ -1,20 +1,31 @@
 # fyne_gRPC
 ### fyne.io (Golang cross-platform native UI) with gRPC client, includes gRPC server app <br/> <br/>
 
+*This is a demo app* <br/><br/>
+
+![alt text](https://raw.githubusercontent.com/johndelavega/assets/master/fyne_gRPC/screen_shot1.png)
+Screenshots running on desktop
+<br/> <br/>
 
 **Setup fyne dev environment: (assumes familiarity with fyne.io)** <br/>
-  https://developer.fyne.io/started/ 
+  https://developer.fyne.io/started/  <br/> <br/>
 
 
 **server app (run from Desktop)** <br/>
 run ./serverApp/main.go from a separate terminal
 
+```
+go run serverApp/main.go
+```
 
 **fyne client app (run from Desktop)**  <br/>
-run ./main.go from another terminal <br/><br/>
+run ./main.go from another terminal
 
+```
+go run .
+```
 
-**Original gRPC code with added int32 response message or reply** <br/>
+**Original gRPC code with added int32 message response or reply** <br/>
   https://github.com/grpc/grpc-go/tree/master/examples/helloworld  <br/><br/>
   
 
