@@ -1,5 +1,5 @@
 # fyne_gRPC
-## fyne.io (Golang cross-platform native UI) with gRPC client, includes gRPC server app <br/> <br/>
+### fyne.io (Golang cross-platform native UI) with gRPC client, includes gRPC server app <br/> <br/>
 
 
 **Setup fyne dev environment: (assumes familiarity with fyne.io)** <br/>
@@ -10,7 +10,7 @@
 run ./serverApp/main.go from a separate terminal
 
 
-**fyne client app**  <br/>
+**fyne client app (run from Desktop)**  <br/>
 run ./main.go from another terminal <br/><br/>
 
 
@@ -34,7 +34,7 @@ go install fyne.io/fyne/v2/cmd/fyne@latest
 ~~~
 
 
-To test the Adroid fyne client app with a cloud server
+To test the Android fyne client app with a cloud server
 
 ~~~
 update localhost with IPv4 from grpcClient.go before building
@@ -46,5 +46,5 @@ cd fyne_gRPC
 fyne package -os android -appID com.fynetest.fyne_gRPC
 ~~~
 ~~~
-fyne_gRPC.apk is created
+fyne_gRPC.apk is created, about 127MB file size
 ~~~
