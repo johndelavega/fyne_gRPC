@@ -25,7 +25,7 @@ func fyneApp() {
 
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
-	a := app.NewWithID("com.fynetest.mobile1")
+	a := app.NewWithID("com.fynetest.mobile_gRPC")
 	a.SetIcon(theme.FyneLogo())
 	w := a.NewWindow("fyneApp gRPC")
 

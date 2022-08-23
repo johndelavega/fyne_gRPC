@@ -36,7 +36,7 @@ const (
 )
 
 var (
-	addr = flag.String("addr", "localhost:50051", "the address to connect to")
+	addr = flag.String("addr", "localhost:50051", "the 'socket address' to connect to")
 	name = flag.String("name", defaultName, "Name to greet")
 )
 
@@ -49,6 +49,8 @@ var (
 )
 
 func grpcClientInit() {
+
+	flag.Parse()
 
 	// Set up a connection to the server.
 	conn, err = grpc.Dial(*addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
@@ -79,5 +81,5 @@ func SayHello() (string, int32) {
 		log.Fatalf("Error: could not greet, make sure ./serverApp/main.go is running: %v", err)
 	}
 
-	return reply.GetMessage(), reply.RandNum
+	return reply.GetMessage(), reply.GetRandNum()
 }
