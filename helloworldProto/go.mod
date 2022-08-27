@@ -14,5 +14,3 @@ require (
 	golang.org/x/text v0.3.0 // indirect
 	google.golang.org/genproto v0.0.0-20200806141610-86f49bd18e98 // indirect
 )
-
-// replace google.golang.org/grpc => ../

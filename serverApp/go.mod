@@ -2,9 +2,12 @@ module server
 
 go 1.18
 
+require helloworld v0.0.0
+
+replace helloworld v0.0.0 => ../helloworldProto
+
 require (
 	google.golang.org/grpc v1.48.0
-	helloworld v0.0.0
 )
 
 require (
@@ -15,5 +18,3 @@ require (
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
-
-replace helloworld v0.0.0 => ../helloworldProto
