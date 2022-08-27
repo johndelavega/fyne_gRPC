@@ -8,7 +8,7 @@ replace helloworld v0.0.0 => ./helloworldProto
 
 require (
 	fyne.io/fyne/v2 v2.2.3
-	google.golang.org/grpc v1.38.0
+	google.golang.org/grpc v1.49.0
 )
 
 require (

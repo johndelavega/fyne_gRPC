@@ -7,7 +7,7 @@ require helloworld v0.0.0
 replace helloworld v0.0.0 => ../helloworldProto
 
 require (
-	google.golang.org/grpc v1.48.0
+	google.golang.org/grpc v1.49.0
 )
 
 require (
