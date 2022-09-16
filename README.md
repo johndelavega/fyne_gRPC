@@ -47,9 +47,6 @@ go install fyne.io/fyne/v2/cmd/fyne@latest
 
 To test the Android fyne client app with a cloud server
 
-~~~
-update localhost with IPv4 from grpcClient.go before building
-~~~
 
 cd to project folder, then build apk file using fyne command
 ~~~
