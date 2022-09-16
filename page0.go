@@ -58,10 +58,9 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 	btnPage2.Disable()
 	// btnPage2.Hidden = true
 
-	btnGrid := widget.NewButton("Open grid", func() {
-		// w.SetContent(grid(w, content))
+	btnSettings := widget.NewButton("Settings", func() {
+		w.SetContent(pageSettings(w, content))
 	})
-	btnGrid.Disable()
 
 	btnExit := widget.NewButton("Exit", func() {
 		w.Close()
@@ -84,7 +83,7 @@ func page0(w fyne.Window, c *fyne.Container, bMobile bool) *fyne.Container {
 
 	})
 
-	vbox := container.NewVBox(btnRandom, btnHeight, btnPage1, btnPage2, btnGrid)
+	vbox := container.NewVBox(btnRandom, btnHeight, btnPage1, btnPage2, btnSettings)
 	if !bMobile {
 		vbox.Objects = append(vbox.Objects, widget.NewSeparator(), btnExit)
 	}
